@@ -1,0 +1,21 @@
+I used python 2.6 in maya, it can work in maya 2010/2011 32bit.
+You might find the solution for using python in maya2011 64bit. I am not sure.
+ 
+
+Create a file called userSetup.mel inside you /Users/X/Documents/maya/2010/scripts
+Paste the content below and save the file:
+ 
+global proc appendSystemPath(){
+python( "import sys" );
+python( "sys.path.append('C:/Python26/Lib/site-packages')" );
+python( "sys.path.append('C:/Python26/Lib/site-packages/win32')" );
+python( "sys.path.append('C:/Python26/Lib/site-packages/win32/lib')" );
+python( "sys.path.append('C:/Python26/Lib')" );
+}
+appendSystemPath();
+ 
+ 
+Edit the maya.env file and paste the following line:
+PYTHONPATH = %PYTHONPATH%
+ 
+ 
